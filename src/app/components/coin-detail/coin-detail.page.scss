@@ -1,0 +1,47 @@
+/* Sección hero */
+.hero {
+  text-align: center;
+  padding: 12px 0 8px;
+}
+
+.coin-img {
+  width: 96px;
+  height: 96px;
+  margin: 12px auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.coin-title {
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.change-badge {
+  margin-bottom: 12px;
+}
+
+/* Card de métricas: negro translúcido + sombra sutil */
+.metrics-card {
+  --background: rgba(21, 4, 38, 0.729);
+  backdrop-filter: blur(4px);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px 30px rgba(51, 3, 3, 0.48);
+  overflow: hidden; /* para que el list se recorte dentro del radio */
+  
+}
+
+/* TradingView widget */
+.chart-card {
+  --background: transparent;
+}
+
+.tv-widget {
+  height: 240px; /* antes estaba inline; ahora desde SCSS */
+}

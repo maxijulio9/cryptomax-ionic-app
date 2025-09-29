@@ -1,0 +1,22 @@
+ion-menu,
+ion-header,
+ion-toolbar {
+  --background: #2c004f;
+  --color: white;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+ion-content,
+ion-list,
+ion-item {
+  --background: #2c004f !important;
+  --color: white !important;
+  color: white;
+}
+p{
+  --background: #2c004f !important;
+  --color: white !important;
+  color: white;
+}
+

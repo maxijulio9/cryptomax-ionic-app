@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ coin?.name ?? 'Cripto' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (coin) {
+
+    <!-- Hero -->
+    <section class="hero">
+      <ion-img class="coin-img" [src]="coin.image" [alt]="coin.name"></ion-img>
+
+      <h2 class="coin-title">
+        {{ coin.name }} ({{ coin.symbol?.toUpperCase() }})
+      </h2>
+
+      <div class="price">
+        US$ {{ coin.currentPrice | number:'1.2-2' }}
+      </div>
+
+      @if (coin.priceChangePercentage24h !== undefined) {
+        <ion-badge class="change-badge"
+                   [color]="(coin.priceChangePercentage24h ?? 0) >= 0 ? 'success' : 'danger'">
+          {{ coin.priceChangePercentage24h | number:'1.2-2' }}%
+        </ion-badge>
+      }
+    </section>
+
+    <!-- Métricas -->
+    <ion-card class="metrics-card">
+      <ion-list lines="none">
+        @if (coin.marketCapitalization) {
+          <ion-item>
+            <ion-label><strong>Market Cap</strong></ion-label>
+            <ion-note slot="end">US$ {{ coin.marketCapitalization | number }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.marketCapRank) {
+          <ion-item>
+            <ion-label><strong>Ranking</strong></ion-label>
+            <ion-note slot="end">#{{ coin.marketCapRank }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.volume24h) {
+          <ion-item>
+            <ion-label><strong>Volumen 24h</strong></ion-label>
+            <ion-note slot="end">US$ {{ coin.volume24h | number }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.circulatingSupply) {
+          <ion-item>
+            <ion-label><strong>Circulating supply</strong></ion-label>
+            <ion-note slot="end">{{ coin.circulatingSupply | number }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.totalSupply) {
+          <ion-item>
+            <ion-label><strong>Total supply</strong></ion-label>
+            <ion-note slot="end">{{ coin.totalSupply | number }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.maxSupply) {
+          <ion-item>
+            <ion-label><strong>Max supply</strong></ion-label>
+            <ion-note slot="end">{{ coin.maxSupply | number }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.ath) {
+          <ion-item>
+            <ion-label><strong>ATH</strong></ion-label>
+            <ion-note slot="end">US$ {{ coin.ath | number:'1.2-2' }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.atl) {
+          <ion-item>
+            <ion-label><strong>ATL</strong></ion-label>
+            <ion-note slot="end">US$ {{ coin.atl | number:'1.2-2' }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.lastUpdated) {
+          <ion-item>
+            <ion-label><strong>Última actualización</strong></ion-label>
+            <ion-note slot="end">{{ coin.lastUpdated | date:'short' }}</ion-note>
+          </ion-item>
+        }
+        @if (coin.homepage) {
+          <ion-item>
+            <ion-label><strong>Website</strong></ion-label>
+            <ion-note slot="end">
+              <a class="link" [href]="coin.homepage" target="_blank" rel="noopener">
+                {{ coin.homepage }}
+              </a>
+            </ion-note>
+          </ion-item>
+        }
+      </ion-list>
+    </ion-card>
+
+    <!-- Descripción -->
+    @if (coin.description) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Descripción</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="description" [innerHTML]="coin.description"></div>
+        </ion-card-content>
+      </ion-card>
+    }
+
+    <!-- Gráfico TradingView -->
+    <ion-card class="chart-card">
+      <ion-card-content>
+        <div id="tradingview-widget" class="tv-widget"></div>
+      </ion-card-content>
+    </ion-card>
+
+  } @else {
+    <p>No se encontró la moneda.</p>
+  }
+</ion-content>

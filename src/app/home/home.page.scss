@@ -1,27 +1,50 @@
-#container {
+
+.home-content {
+  /* variables propias del content */
+  --background: #2e0057;
+}
+.balance-card{
+  --background: #88b0d552;
+  color: rgb(224, 240, 255);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+ion-toolbar{
+  --background:#2e0057;
+
+}
+ion-title {
+  color: rgba(230, 187, 248, 0.822);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+ion-card-title {
+  color: rgba(243, 227, 250, 0.822);
+  font-size: 1.6rem;
+
+}
+
+ion-card-subtitle{
+  color: #c863eadb;
+  font-size: 1.3rem;
+
+}
+.balance-card::part(native){
+  box-shadow: 0 20px 38px rgba(23, 231, 210, 0.299);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
+
+}
+.ion-padding{
+  max-height: 20%;
+  --background: #0129041e;
+  box-shadow: 0 20px 38px rgba(23, 231, 210, 0.275); 
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 16px;
   text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+}
+ion-searchbar{
+  --background: #0112228c;
+
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}

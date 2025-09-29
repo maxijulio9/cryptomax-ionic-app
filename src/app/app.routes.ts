@@ -10,4 +10,23 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+   { 
+    path: 'coin/:symbol', loadComponent: () => import('./components/coin-detail/coin-detail.page').then(m => m.CoinDetailPage) 
+  },
+  {
+    path: 'coin-detail',
+    loadComponent: () => import('./components/coin-detail/coin-detail.page').then( m => m.CoinDetailPage)
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./pages/about/about.page').then( m => m.AboutPage)
+  },
+  {
+    path: 'prices',
+    loadComponent: () => import('./pages/prices/prices.page').then( m => m.PricesPage)
+  },
+  {
+    path: 'profile',
+    loadComponent: () => import('./pages/profile/profile.page').then( m => m.ProfilePage)
+  },
 ];

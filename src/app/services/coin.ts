@@ -1,0 +1,32 @@
+import { Injectable } from '@angular/core';
+
+export interface Coin {
+  symbol: string;        // id corto para la ruta (btc, eth, etc.)
+  name: string;        // nombre visible
+  image: string;       // ruta a la imagen en assets
+  description: string; // texto breve
+}
+
+@Injectable({ providedIn: 'root' })
+export class CoinService {
+  private readonly coins: Coin[] = [
+    { symbol:'BTC', name:'Bitcoin',  image:'assets/coins/icon-bitcoin1.png',  description:'Primera cripto descentralizada.' },
+    { symbol:'ETH', name:'Ethereum', image:'assets/coins/icon-ethereum.png',  description:'Plataforma de smart contracts.' },
+    { symbol:'USDT',name:'Tether',   image:'assets/coins/icon-usdt.png', description:'Stablecoin vinculada al USD.' },
+    { symbol:'BNB', name:'BNB',      image:'assets/coins/icon-bnb.png',  description:'Token nativo de BNB Chain.' },
+    { symbol:'SOL', name:'Solana',   image:'assets/coins/icon-solana.png',  description:'Blockchain de alto rendimiento.' },
+    { symbol:'XRP', name:'XRP',      image:'assets/coins/favicon.png',  description:'Pagos rápidos y de bajo costo.' },
+        { symbol:'XRP', name:'XRP',      image:'assets/coins/favicon.png',  description:'Pagos rápidos y de bajo costo.' },
+    { symbol:'XRP', name:'XRP',      image:'assets/coins/favicon.png',  description:'Pagos rápidos y de bajo costo.' },
+
+  ];
+
+  getAll(): Coin[] {
+    return this.coins;
+  }
+
+  getBySymbol(symbol: string): Coin | undefined {
+    const s = symbol.trim().toUpperCase();
+    return this.coins.find(c => c.symbol.toUpperCase() === s);
+  }
+}
