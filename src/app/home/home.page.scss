@@ -1,50 +1,97 @@
-
-.home-content {
-  /* variables propias del content */
-  --background: #2e0057;
+.home-page {
+  color: #fff;
+  text-align: center;
 }
-.balance-card{
-  --background: #88b0d552;
-  color: rgb(224, 240, 255);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+ion-toolbar {
+  --background: #1a0035;
+  --color: #fff;
+  font-weight: 600;
 }
-ion-toolbar{
-  --background:#2e0057;
-
-}
-ion-title {
-  color: rgba(230, 187, 248, 0.822);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-ion-card-title {
-  color: rgba(243, 227, 250, 0.822);
-  font-size: 1.6rem;
-
+ion-button {
+  --color: #fff;
 }
 
-ion-card-subtitle{
-  color: #c863eadb;
-  font-size: 1.3rem;
-
+.balance-card {
+  margin: 16px;
+  border-radius: 20px;
+  background: #4100aa;
+  background: linear-gradient(200deg, #4100aa 40%, #1a0035 100%);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  ion-card-subtitle {
+    color: #cbb2ff;
+  }
+  ion-card-title {
+    color: #f275e3;
+    font-size: 2rem;
+    margin: 8px 0;
+  }
+  ion-badge {
+    margin-top: 4px;
+    font-size: 0.9rem;
+  }
 }
-.balance-card::part(native){
-  box-shadow: 0 20px 38px rgba(23, 231, 210, 0.299);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 16px;
-
+.main-actions{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  .action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ddddddda;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+    ion-img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 8px;
+    }
+    &:hover {
+      transform: scale(1.05);
+      color: #fff;
+    }
+  }
 }
-.ion-padding{
-  max-height: 20%;
-  --background: #0129041e;
-  box-shadow: 0 20px 38px rgba(23, 231, 210, 0.275); 
-  border: 1px solid rgba(255,255,255,.06);
+
+
+.promo-card {
+  background: #6804d2d2;
+  background: linear-gradient(135deg, #6804d2d2 0%, #1a0035d2 100%);
+  color: #fff;
+  margin: 0 16px;
   border-radius: 16px;
   text-align: center;
-
-}
-ion-searchbar{
-  --background: #0112228c;
-
+  font-weight: 500;
 }
 
+.market-card {
+--background: #ea07ffb7;
+  color: #fff;
+  margin: 16px;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.market-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+.market-card  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+.market-card  p {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+.watch-market-content {
+  padding: 20px;
+  --background: #ce0cdfca;
+}

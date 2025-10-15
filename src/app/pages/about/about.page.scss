@@ -1,0 +1,62 @@
+
+ion-content {
+    --background: #07034b;
+    color: #fff;
+    }   
+
+.about-content {
+    --background:#4b057c;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+ion-back-button {
+    --color: #c68ff4;
+}
+
+ion-card {
+    --background: #1b0033;
+    --border-color: #7a3ff2;
+    border-radius: 16px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+ion-card ion-card-title{
+    color: #fff;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ion-card p{
+    color: #fff;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ion-card .goal-cryptomax {
+    color: #f953ffd7;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ion-card-header {
+    color: #000;
+    border-bottom: 1px solid #be62ff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+ion-contet ion-button {
+    --background: #1b0033;
+    --border-color: #7a3ff2;
+    --color: #fff;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}

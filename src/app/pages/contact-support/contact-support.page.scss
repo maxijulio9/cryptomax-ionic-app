@@ -1,0 +1,48 @@
+.contact-content {
+  --background: #9237e265;
+  color: #fff;
+
+  ion-item {
+    --background: transparent;
+    --color: #fff;
+    margin-bottom: 10px;
+  }
+
+  ion-label {
+    font-weight: 500;
+    color: #caa9ff;
+  }
+
+  ion-input,
+  ion-textarea,
+  ion-select {
+    --placeholder-color: #aaa;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    ion-button {
+      flex: 1;
+      margin: 0 6px;
+      --border-radius: 8px;
+      
+    }
+  }
+}
+ion-back-button {
+    --color: #c68ff4;
+}
+
+
+
+
+// ion-select-option {
+//   --color: #000;
+//     --background: #42fa05d8;
+//     font-weight: 500;
+//     border-radius: 8px; 
+//     margin: 4px;
+//     padding: 6px;
+//     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+// }   

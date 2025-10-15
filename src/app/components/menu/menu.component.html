@@ -4,13 +4,28 @@
       <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/home">Principal</ion-item>
-      <ion-item routerLink="/about">Sobre crypto Max</ion-item>
-      <ion-item routerLink="/prices">Precios</ion-item>
-      <ion-item routerLink="/profile">Perfil</ion-item>
-      <ion-item routerLink="/profile">Wallets</ion-item>
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/home" routerDirection="root" detail="false">Principal</ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/about" routerDirection="forward" detail="false">Sobre Crypto Max</ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/prices" routerDirection="forward" detail="false"> <i class="fas fa-arrow-right"></i>Cotizaciones </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/profile" routerDirection="forward" detail="false">Perfil</ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/wallets" routerDirection="forward" detail="false">Wallets</ion-item>
+      </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>

@@ -1,66 +1,49 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Hola Usuario
-    </ion-title>
+    <ion-title>Hola, Maximiliano</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button autoHide="false"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content  class="home-content">
+<ion-content class="home-content">
 
- 
-  <ion-grid>
-    <ion-refresher slot="fixed" (ionRefresh)="refreshDone($event.target)">
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
+  <ion-card class="balance-card">
+    <ion-card-header>
+      <ion-card-subtitle>Tu balance total</ion-card-subtitle>
+      <ion-card-title>${{ usdBalance | number:'1.2-2' }} USD</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-badge color="success">+0.12% hoy</ion-badge>
+    </ion-card-content>
+  </ion-card>
 
+  <div class="main-actions">
+    <div class="action" (click)="goToAdd()">
+      <ion-img src="assets/coins/add.png" alt="Agregar"></ion-img>
+      <p>Agregar</p>
+    </div>
+    <div class="action" (click)="goToMyCriptos()">
+      <ion-img src="assets/coins/wallet.png" alt="Mis Criptos"></ion-img>
+      <p>Mis Criptos</p>
+    </div>
+    <div class="action" (click)="goToProfile()">
+      <ion-img src="assets/coins/user.png" alt="Perfil"></ion-img>
+      <p>Perfil</p>
+    </div>
+  </div>
 
+  <ion-card class="promo-card">
+    <ion-card-content>
+      Revisá cuales son los precios y agregalos a tu Wallet 🚀
+    </ion-card-content>
+  </ion-card>
 
-    <ion-row class="balances-row">
-      <ion-col size="12" sizeMd="6">
-        <ion-card class="balance-card ars">
-          <ion-card-header>
-            <ion-card-subtitle>Saldo en ARS</ion-card-subtitle>
-            <ion-card-title class="amount">
-              $ {{ arsBalance }}
-            </ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
+  <ion-card class="market-card" (click)="goToPrices()">
+    <ion-card-content class="watch-market-content">
+      <h3>Ver cotizaciones</h3>
+    </ion-card-content>
+  </ion-card>
 
-      <ion-col size="12" sizeMd="6">
-        <ion-card class="balance-card usd">
-          <ion-card-header>
-            <ion-card-subtitle>Saldo en USD</ion-card-subtitle>
-            <ion-card-title class="amount">
-              $ {{ usdBalance }}
-            </ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <ion-searchbar
-    placeholder="Buscar por nombre o símbolo"
-    debounce="250"
-    (ionInput)="onSearch($event)" >
-    </ion-searchbar>
-
-     <ion-row>
-      @for (c of (coins$ | async) ?? []; track c.symbol) {
-        <ion-col size="6" sizeMd="4" sizeLg="3">
-          <app-coin-card
-            [name]="c.name"
-            [image]="c.image"
-            (cardClick)="goToDetail(c.symbol)">
-          </app-coin-card>
-        </ion-col>
-      } @empty {
-        <ion-col size="12" class="ion-text-center ion-padding">No hay monedas</ion-col>
-      }
-    </ion-row>
-  </ion-grid>
 </ion-content>

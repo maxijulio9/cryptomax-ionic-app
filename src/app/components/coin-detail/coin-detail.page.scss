@@ -2,6 +2,12 @@
 .hero {
   text-align: center;
   padding: 12px 0 8px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 16px;
+    border-radius: 14px;
+  background: rgba(79, 2, 157, 0.589);
+
+
 }
 
 .coin-img {
@@ -15,33 +21,43 @@
 .coin-title {
   margin: 8px 0 4px;
   font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .price {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 4px;
+  color: rgb(221, 125, 243);
 }
 
 .change-badge {
   margin-bottom: 12px;
 }
 
-/* Card de métricas: negro translúcido + sombra sutil */
 .metrics-card {
   --background: rgba(21, 4, 38, 0.729);
   backdrop-filter: blur(4px);
   border-radius: 14px;
-  box-shadow: 0 8px 40px 30px rgba(51, 3, 3, 0.48);
-  overflow: hidden; /* para que el list se recorte dentro del radio */
-  
+  box-shadow: 0 8px  20px rgba(0, 1, 20, 0.626);
+  overflow: hidden; 
 }
 
-/* TradingView widget */
 .chart-card {
   --background: transparent;
 }
 
 .tv-widget {
-  height: 240px; /* antes estaba inline; ahora desde SCSS */
+  height: 240px; 
+}
+
+ion-item{
+  --background: rgb(42, 1, 107) !important;
+  color: aliceblue;
+}
+
+.chart-card ion-card-content{
+  padding: 0;
+  box-shadow: 0 8px 9cap 20px rgba(0, 1, 20, 0.626);  
 }

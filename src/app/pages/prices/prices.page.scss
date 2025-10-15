@@ -1,0 +1,25 @@
+ion-toolbar {
+  --color: #fff;
+}
+
+ion-content {
+  --background: linear-gradient(180deg, #250047 0%, #1b0033 100%);
+}
+ion-back-button {
+  --color: #c68ff4;
+}
+
+ion-searchbar {
+  --background: rgba(255, 255, 255, 0.1);
+  --color: #fff;
+  --placeholder-color: #bbb;
+  border-radius: 10px;
+  margin: 8px 0 16px;
+}
+
+app-coin-card {
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: translateY(-4px);
+  }
+}

@@ -16,16 +16,13 @@ export class CriptoCoinGeckoApi {
     const q = symbol.toLowerCase();
 
     return this.http.get<any>(`${this.apiUrl}/search?query=${q}`).pipe(
-      // 1) quedarnos solo con las coincidencias exactas de symbol
       map(res => (res.coins ?? []).filter((c: any) => c.symbol.toLowerCase() === q)),
-      // 2) ordenar por market_cap_rank para elegir el más relevante
       map(coins => coins.sort((a: any, b: any) => (a.market_cap_rank ?? 9999) - (b.market_cap_rank ?? 9999))),
       map(coins => coins[0]),
 
       switchMap(coin => {
         if (!coin) return of(undefined);
 
-        // 3) pedir datos de mercado de esa id
         return this.http.get<any[]>(`${this.apiUrl}/coins/markets`, {
           params: {
             vs_currency: vsCurrency,
@@ -60,4 +57,12 @@ export class CriptoCoinGeckoApi {
       })
     );
   }
+
+
+  getAllCryptos(limit: number = 200): Observable<{ id: string; symbol: string; name: string }[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/coins/list`).pipe(
+      map((list) => list.slice(0, limit)) // limitamos para evitar carga masiva
+    );
+  }
+
 }

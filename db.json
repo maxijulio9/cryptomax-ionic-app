@@ -1,0 +1,89 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "symbol": "BTC",
+      "amount": 0.015,
+      "priceUsd": 63000,
+      "exchange": "Binance",
+      "date": "2025-10-05T14:30:00Z",
+      "notes": "Compra inicial de BTC"
+    },
+    {
+      "id": "2",
+      "symbol": "ETH",
+      "amount": 0.5,
+      "priceUsd": 4000,
+      "exchange": "Kraken",
+      "date": "2025-10-06T10:00:00Z",
+      "notes": "Compra de ETH para diversificación"
+    },
+    {
+      "id": "3",
+      "symbol": "ADA",
+      "amount": 100,
+      "priceUsd": 2.1,
+      "exchange": "Ripio",
+      "date": "2025-10-07T09:15:00Z",
+      "notes": "Inversión en ADA"
+    }
+  ],
+  "exchanges": [
+    {
+      "id": "1",
+      "name": "Binance"
+    },
+    {
+      "id": "2",
+      "name": "Ripio"
+    },
+    {
+      "id": "3",
+      "name": "Kraken"
+    },
+    {
+      "id": "4",
+      "name": "Coinbase"
+    },
+    {
+      "id": "5",
+      "name": "Bitso"
+    },
+    {
+      "id": "6",
+      "name": "Crypto.com"
+    },
+    {
+      "id": "7",
+      "name": "Lemon cash"
+    },
+    {
+      "id": "eacd",
+      "name": "test"
+    },
+    {
+      "id": "542f",
+      "name": "tttttt"
+    }
+  ],
+  "supportQueries": [
+    {
+      "id": "1",
+      "tipo": [
+        "Soporte técnico"
+      ],
+      "resumen": "Error al cargar precios",
+      "descripcion": "El listado de precios no se actualiza correctamente",
+      "fecha": "2025-10-05T16:00:00Z"
+    },
+    {
+      "id": "2",
+      "tipo": [
+        "Sugerencias o feedback"
+      ],
+      "resumen": "Agregar gráficos de rendimiento",
+      "descripcion": "Sería útil tener gráficos para visualizar el rendimiento de las inversiones",
+      "fecha": "2025-10-06T11:30:00Z"
+    }
+  ]
+}

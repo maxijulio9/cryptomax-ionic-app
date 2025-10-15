@@ -1,0 +1,47 @@
+.datetime-buttons {
+  display: flex;
+  gap: 10px;
+
+  ion-button {
+    flex: 1;
+    --background: #1b0033;
+    --border-color: #7a3ff2;
+    --color: #fff;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    
+  }
+}
+ion-back-button {
+  --color: #c68ff4;
+}
+
+ion-modal {
+  --background: #1b0033;
+  ion-datetime {
+    --background: #1b0033;
+    --color: #fff;
+    
+  }
+}
+.cancel-button {
+  --background: transparent;
+  --color: #fff;
+  --border-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+
+}
+
+
+.ion-margin-top {
+  margin-top: 20px;
+  margin-top: 20px;
+  --background: #da00b6 !important;
+  --color: #fff;
+  font-weight: bold;
+  --border-radius: 120px; 
+
+}

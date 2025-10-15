@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/about" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contacto con Soporte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding contact-content">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    
+    <!-- Tipo de consulta -->
+    <ion-item>
+      <ion-label position="stacked">Tipo de consulta</ion-label>
+      <ion-select formControlName="tipo" multiple="false" placeholder="Seleccioná tipo de consulta">
+        <ion-select-option value="soporte">Soporte técnico</ion-select-option>
+        <ion-select-option value="cuenta">Problemas con la cuenta</ion-select-option>
+        <ion-select-option value="pagos">Incosistencias</ion-select-option>
+        <ion-select-option value="sugerencias">Sugerencias o feedback</ion-select-option>
+        <ion-select-option value="otros">Otros</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Resumen -->
+    <ion-item>
+      <ion-label position="stacked">Resumen</ion-label>
+      <ion-input formControlName="resumen" placeholder="Escribí un título breve"></ion-input>
+    </ion-item>
+    @if (form.get('resumen')?.touched && form.get('resumen')?.invalid) {
+      <ion-text style="color: #ff0edf; font-size: 0.9rem ;" class="error-message">
+        Agregá un resumeny debe tener al menos 10 caracteres.
+      </ion-text>
+    }
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-textarea
+        formControlName="descripcion"
+        placeholder="Contanos más sobre tu consulta..."
+        rows="6"
+        autoGrow="true">
+      </ion-textarea>
+    </ion-item>
+    @if (form.get('descripcion')?.touched && form.get('descripcion')?.invalid) {
+      <ion-text style="color: #ff0edf; font-size: 0.9rem ;" class="error-message">
+        La descripción es obligatoria y debe tener al menos 10 caracteres.
+      </ion-text>
+    }
+    
+
+    <div class="btn-group ion-margin-top">
+      <ion-button color="medium" fill="clear" (click)="onCancel()">Cancelar</ion-button>
+      <ion-button color="primary" type="submit" [disabled]="form.invalid">Enviar</ion-button>
+    </div>
+
+  </form>
+</ion-content>

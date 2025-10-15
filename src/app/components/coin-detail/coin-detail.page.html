@@ -10,7 +10,6 @@
 <ion-content class="ion-padding">
   @if (coin) {
 
-    <!-- Hero -->
     <section class="hero">
       <ion-img class="coin-img" [src]="coin.image" [alt]="coin.name"></ion-img>
 
@@ -29,8 +28,14 @@
         </ion-badge>
       }
     </section>
+    
+    <ion-card class="chart-card">
+      <ion-card-content>
+        <div id="tradingview-widget" class="tv-widget"></div>
+      </ion-card-content>
+    </ion-card>
 
-    <!-- Métricas -->
+
     <ion-card class="metrics-card">
       <ion-list lines="none">
         @if (coin.marketCapitalization) {
@@ -100,7 +105,6 @@
       </ion-list>
     </ion-card>
 
-    <!-- Descripción -->
     @if (coin.description) {
       <ion-card>
         <ion-card-header>
@@ -111,13 +115,6 @@
         </ion-card-content>
       </ion-card>
     }
-
-    <!-- Gráfico TradingView -->
-    <ion-card class="chart-card">
-      <ion-card-content>
-        <div id="tradingview-widget" class="tv-widget"></div>
-      </ion-card-content>
-    </ion-card>
 
   } @else {
     <p>No se encontró la moneda.</p>

@@ -29,4 +29,12 @@ export const routes: Routes = [
     path: 'profile',
     loadComponent: () => import('./pages/profile/profile.page').then( m => m.ProfilePage)
   },
+  {
+    path: 'add-crypto',
+    loadComponent: () => import('./pages/add-crypto/add-crypto.page').then( m => m.AddCryptoPage)
+  },
+  {
+    path: 'contact-support',
+    loadComponent: () => import('./pages/contact-support/contact-support.page').then( m => m.ContactSupportPage)
+  },
 ];

@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>prices</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">prices</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+
+  <ion-refresher slot="fixed" (ionRefresh)="refreshDone($event.target)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-searchbar
+    placeholder="Buscar por nombre o símbolo"
+    debounce="250"
+    (ionInput)="onSearch($event)">
+  </ion-searchbar>
+
+  <ion-grid>
+    <ion-row>
+      @for (c of (coins$ | async) ?? []; track c.symbol) {
+        <ion-col size="6" sizeMd="4" sizeLg="3">
+          <app-coin-card
+            [name]="c.name"
+            [image]="c.image"
+            (cardClick)="goToDetail(c.symbol)">
+          </app-coin-card>
+        </ion-col>
+      } @empty {
+        <ion-col size="12" class="ion-text-center ion-padding">
+          No hay monedas
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

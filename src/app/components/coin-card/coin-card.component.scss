@@ -28,15 +28,16 @@
 // }
 
 .coin-card{
---background: #091f33;
+--background: #00000051;
   box-shadow: 0 20px 38px rgba(0, 7, 7, 0.459); 
   border: 1px solid rgba(255,255,255,.06);
   border-radius: 16px;
-text-align: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.778);
 }
 .coin-card:hover{ 
   transform: translateY(-3px);
-  box-shadow: 0 18px 20px rgba(180, 0, 186, 0.351);
+  box-shadow: 0 18px 20px rgba(232, 14, 239, 0.679);
   transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
   
 }
@@ -46,9 +47,9 @@ ion-img{
     width:64px; height:64px; margin:16px auto 8px;
 }   
 ion-card-title{
-    font-size: 1.4rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgba(240, 248, 255, 0.592);
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgba(240, 248, 255, 0.915);
 
 }
 ion-img{ 

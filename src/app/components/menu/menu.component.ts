@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { IonItem, IonList, IonContent, IonTitle, IonHeader, IonMenu, IonToolbar } from "@ionic/angular/standalone";
+import { RouterLink } from '@angular/router';
+import { IonItem, IonList, IonContent, IonTitle, IonHeader, IonMenu, IonToolbar, IonRouterOutlet, IonApp, IonMenuToggle } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,9 @@ import { IonItem, IonList, IonContent, IonTitle, IonHeader, IonMenu, IonToolbar 
   styleUrls: ['./menu.component.scss'],
    encapsulation: ViewEncapsulation.None,
   standalone: true,
-  imports: [IonToolbar, IonHeader, IonTitle, IonContent, IonList, IonItem, IonMenu],
+  imports: [IonApp, IonRouterOutlet,
+     IonToolbar, IonHeader, IonTitle,
+      IonContent, IonList, IonItem, IonMenu, IonMenuToggle, RouterLink],
 })
 export class MenuComponent  implements OnInit {
 
@@ -16,3 +19,5 @@ export class MenuComponent  implements OnInit {
   ngOnInit() {}
 
 }
+
+
