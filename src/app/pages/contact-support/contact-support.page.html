@@ -9,8 +9,6 @@
 
 <ion-content class="ion-padding contact-content">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    
-    <!-- Tipo de consulta -->
     <ion-item>
       <ion-label position="stacked">Tipo de consulta</ion-label>
       <ion-select formControlName="tipo" multiple="false" placeholder="Seleccioná tipo de consulta">
@@ -22,7 +20,6 @@
       </ion-select>
     </ion-item>
 
-    <!-- Resumen -->
     <ion-item>
       <ion-label position="stacked">Resumen</ion-label>
       <ion-input formControlName="resumen" placeholder="Escribí un título breve"></ion-input>

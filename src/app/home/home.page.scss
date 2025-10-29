@@ -11,27 +11,29 @@ ion-button {
   --color: #fff;
 }
 
-.balance-card {
-  margin: 16px;
+ion-card.balance-card {
+  --background: linear-gradient(270deg, #0b001cea, #6803d4, #000000);
+  --color: #fff;
+  background-size: 400% 200%;
+  animation: gradientMove 15s ease infinite;
   border-radius: 20px;
-  background: #4100aa;
-  background: linear-gradient(200deg, #4100aa 40%, #1a0035 100%);
-  color: #fff;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  ion-card-subtitle {
-    color: #cbb2ff;
-  }
-  ion-card-title {
-    color: #f275e3;
-    font-size: 2rem;
-    margin: 8px 0;
-  }
-  ion-badge {
-    margin-top: 4px;
-    font-size: 0.9rem;
-  }
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  ion-card-subtitle { color: #e1d4fd; }
+  ion-card-title { color: #f275e3; font-size: 2rem; margin: 8px 0; }
+  ion-badge { margin-top: 4px; font-size: .9rem; }
 }
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  75%  { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
 .main-actions{
   display: flex;
   justify-content: space-around;
@@ -41,17 +43,15 @@ ion-button {
     flex-direction: column;
     align-items: center;
     color: #ddddddda;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     transition: transform 0.2s ease, color 0.2s ease;
     ion-img {
       width: 50px;
       height: 50px;
       margin-bottom: 8px;
+      // filter: brightness(130%);
     }
-    &:hover {
-      transform: scale(1.05);
-      color: #fff;
-    }
+   
   }
 }
 
@@ -67,12 +67,15 @@ ion-button {
 }
 
 .market-card {
---background: #ea07ffb7;
+  --background: none; 
+  background: linear-gradient(270deg, #ff1aca41, #58009c6f, #0909092c);
+  background-size: 400% 400%;
+  animation: gradientMoveMarket 3s ease infinite;
   color: #fff;
   margin: 16px;
   border-radius: 16px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .market-card:hover {
@@ -83,15 +86,19 @@ ion-button {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
+    
   }
 
 .market-card  p {
     margin-top: 4px;
     font-size: 0.9rem;
     color: #ccc;
-  }
+}
 
-.watch-market-content {
-  padding: 20px;
-  --background: #ce0cdfca;
+
+@keyframes gradientMoveMarket {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  75%  { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
 }

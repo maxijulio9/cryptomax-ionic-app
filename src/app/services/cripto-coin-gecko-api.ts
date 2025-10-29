@@ -11,7 +11,6 @@ export class CriptoCoinGeckoApi {
 
   constructor(private http: HttpClient) {}
 
-  // Buscar por symbol y traer el coin correcto
   getCriptoBySymbol(symbol: string, vsCurrency: string = 'usd'): Observable<Cripto | undefined> {
     const q = symbol.toLowerCase();
 
@@ -59,10 +58,31 @@ export class CriptoCoinGeckoApi {
   }
 
 
+  //trae tokens deprecados an 
+  // getAllCryptos(limit: number = 200): Observable<{ id: string; symbol: string; name: string }[]> {
+  //   return this.http.get<any[]>(`${this.apiUrl}/coins/list`).pipe(
+  //     map((list) => list.slice(0, limit)) 
+  //   );
+  // }
   getAllCryptos(limit: number = 200): Observable<{ id: string; symbol: string; name: string }[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/coins/list`).pipe(
-      map((list) => list.slice(0, limit)) // limitamos para evitar carga masiva
-    );
-  }
+  return this.http.get<any[]>(`${this.apiUrl}/coins/markets`, {
+    params: {
+      vs_currency: 'usd',
+      order: 'market_cap_desc',
+      per_page: limit.toString(),
+      page: '1',
+      sparkline: 'false'
+    }
+  }).pipe(
+    map((list) =>
+      list.map((coin) => ({
+        id: coin.id,
+        symbol: coin.symbol.toUpperCase(),
+        name: coin.name
+      }))
+    )
+  );
+}
+
 
 }

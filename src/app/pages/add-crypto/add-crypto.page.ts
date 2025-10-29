@@ -11,6 +11,8 @@ import { ExchangesService } from 'src/app/services/exchange-service';
 import { addOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TransactionsService } from 'src/app/services/transaction-service';
 
 @Component({
   standalone: true,
@@ -33,6 +35,11 @@ export class AddCryptoPage implements OnInit {
   private exchangesService = inject(ExchangesService);
   private fb = inject(FormBuilder);
   private toastCtrl = inject(ToastController);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private transactionsService = inject(TransactionsService);
+
+
 
   allCryptos: { id: string; symbol: string; name: string }[] = [];
   exchanges: string[] = [];
@@ -57,6 +64,11 @@ export class AddCryptoPage implements OnInit {
   }
 
   ngOnInit() {
+    const symbolParam = this.route.snapshot.queryParamMap.get('symbol');
+    if (symbolParam) {
+      this.form.patchValue({ symbol: symbolParam.toUpperCase() });
+    }
+
     this.coinApi.getAllCryptos(150).subscribe({
       next: data => this.allCryptos = data.sort((a, b) => a.name.localeCompare(b.name)),
       error: err => console.error('Error al obtener criptos', err)
@@ -79,7 +91,7 @@ export class AddCryptoPage implements OnInit {
 
   saveExchange() {
     const nuevo = (this.exchangeForm.value.name ?? '').trim();
-
+    console.log("nuevo:", nuevo);
     if (!nuevo || this.exchangeForm.invalid) return;
 
     this.exchangesService.add({ name: nuevo }).subscribe({
@@ -88,7 +100,7 @@ export class AddCryptoPage implements OnInit {
         this.form.patchValue({ exchange: res.name });
 
         const toast = await this.toastCtrl.create({
-          message: `Exchange "${res.name}" agregado correctamente ✅`,
+          message: `Exchange "${res.name}" agregado correctamente`,
           duration: 2500,
           color: 'success',
           position: 'bottom'
@@ -101,7 +113,7 @@ export class AddCryptoPage implements OnInit {
       error: async (err) => {
         console.error('Error al agregar exchange', err);
         const toast = await this.toastCtrl.create({
-          message: 'Error al agregar el exchange 😓',
+          message: 'Error al agregar el exchange ',
           duration: 2500,
           color: 'danger',
           position: 'bottom'
@@ -113,7 +125,32 @@ export class AddCryptoPage implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Compra registrada:', this.form.value);
+      const transaction = this.form.value;
+
+      this.transactionsService.add(transaction as any).subscribe({
+        next: async (res) => {
+          console.log('🟢 Transacción guardada:', res);
+          const toast = await this.toastCtrl.create({
+            message: 'Compra registrada correctamente ',
+            duration: 2500,
+            color: 'success',
+            position: 'middle'
+          });
+          await toast.present();
+
+          this.form.reset();
+        },
+        error: async (err) => {
+          console.error('Error al guardar transacción', err);
+          const toast = await this.toastCtrl.create({
+            message: 'Error al guardar la transacción ',
+            duration: 2500,
+            color: 'danger',
+            position: 'bottom'
+          });
+          await toast.present();
+        }
+      });
     } else {
       this.form.markAllAsTouched();
     }
@@ -137,4 +174,10 @@ export class AddCryptoPage implements OnInit {
     this.form.patchValue({ date: current.toISOString() });
     this.showTimePicker = false;
   }
+  goToTransactions() {
+    this.router.navigate(['/my-cryptos']);
+  }
+  
+
+
 }

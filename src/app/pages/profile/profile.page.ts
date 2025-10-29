@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -19,6 +19,8 @@ import {
   IonIcon
 } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import {  profileService } from 'src/app/services/profile-service';
 
 @Component({
   standalone: true,
@@ -35,6 +37,7 @@ import { CommonModule } from '@angular/common';
     IonContent,
     IonAvatar,
     IonCard,
+    IonIcon,
     IonCardHeader,
     IonCardTitle,
     IonCardContent,
@@ -47,16 +50,63 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class ProfilePage {
-  user = {
-    name: 'Maximiliano Julio',
-    email: 'maxi.crypto@example.com',
-    country: 'Argentina',
-    joinDate: '2024',
-    level: 'Verificado',
-    avatar: 'assets/coins/user.png'
-  };
+
+  private router = inject(Router);
+  private userProfileService = inject(profileService);
+
+  // user = {
+  //   name: 'Maximiliano',
+  //   lastName: 'Julio',
+  //   email: 'maxi.crypto@example.com',
+  //   country: 'Argentina',
+  //   dni: '43010166',
+  //   joinDate: '2024',
+  //   level: 'Verificado',
+  //   avatar: 'assets/coins/user.png'
+  // };
+
+   user: any = null; 
+
+  ngOnInit() {
+    // this.userProfileService.getProfile().subscribe({
+    //   next: data => {
+    //     this.user = {
+    //       name: data.name,
+    //       lastName: data.lastName,
+    //       email: data.email,
+    //       country: data.country,
+    //       dni: data.dni,
+    //       joinDate: new Date(data.memberSince).getFullYear(),
+    //       level: data.accountLevel === 'verified' ? 'Verificado' : 'Básico',
+    //       avatar: data.avatarUrl || 'assets/coins/user.png'
+    //     };
+    //   },
+    //   error: err => console.error('Error al obtener el perfil', err)
+    // });
+    this.userProfileService.getProfile().subscribe({
+      next: data => {
+        this.user = {
+          name: data.name,
+          lastName: data.lastName,
+          email: data.email,
+          country: data.country,
+          dni: data.dni,
+          joinDate: new Date(data.memberSince).getFullYear(),
+          level: data.accountLevel === 'verified' ? 'Verificado' : 'Básico',
+          avatar: data.avatarUrl || 'assets/coins/user.png'
+        };
+      },
+      error: err => console.error('Error al obtener el perfil', err)
+    }); 
+
+
+  }
+
 
   goToEditProfile() {
+    this.router.navigate(['/edit-profile'], {
+      state: { profile: this.user }
+     });
     console.log('Editar perfil');
   }
 

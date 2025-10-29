@@ -1,0 +1,50 @@
+.my-cryptos-content {
+  --background: #0f021a;
+  color: #fff;
+
+  ion-list {
+    background: transparent;
+  }
+
+  ion-item {
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    margin: 15px 0;
+    padding: 8px;
+    color: #ffffff;
+    --background: rgba(30, 1, 53, 0.603) !important;
+
+    ion-avatar img {
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background-color: #190031;
+    }
+
+    ion-label h2 {
+      color: #f49bff; 
+      font-weight: 600;
+    }
+
+    ion-label p {
+      color: #e4dfec;
+      font-size: 0.9rem;
+      margin: 2px 0;
+    }
+
+    ion-badge {
+      --background: #1ea077;
+      --color: #fafdff;
+        font-weight: bold;
+      font-size: 1rem;
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+  }
+
+  .no-data {
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
+    color: #b87aff;
+  }
+}

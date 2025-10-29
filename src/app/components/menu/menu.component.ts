@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonItem, IonList, IonContent, IonTitle, IonHeader, IonMenu, IonToolbar, IonRouterOutlet, IonApp, IonMenuToggle } from "@ionic/angular/standalone";
+import { IonItem, IonList, IonContent, IonTitle, IonHeader, IonMenu, IonToolbar, IonRouterOutlet, IonApp, IonMenuToggle, IonIcon } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,7 @@ import { IonItem, IonList, IonContent, IonTitle, IonHeader, IonMenu, IonToolbar,
   styleUrls: ['./menu.component.scss'],
    encapsulation: ViewEncapsulation.None,
   standalone: true,
-  imports: [IonApp, IonRouterOutlet,
+  imports: [IonIcon, IonApp, IonRouterOutlet,
      IonToolbar, IonHeader, IonTitle,
       IonContent, IonList, IonItem, IonMenu, IonMenuToggle, RouterLink],
 })

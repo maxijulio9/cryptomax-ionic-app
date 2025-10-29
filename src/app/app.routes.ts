@@ -37,4 +37,12 @@ export const routes: Routes = [
     path: 'contact-support',
     loadComponent: () => import('./pages/contact-support/contact-support.page').then( m => m.ContactSupportPage)
   },
+  {
+    path: 'my-cryptos',
+    loadComponent: () => import('./pages/my-cryptos/my-cryptos.page').then( m => m.MyCryptosPage)
+  },
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./pages/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
+  },
 ];

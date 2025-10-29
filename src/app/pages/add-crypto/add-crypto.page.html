@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text=""></ion-back-button>
     </ion-buttons>
-    <ion-title style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Cargá una nueva compra</ion-title>
+    <ion-title class="page-title">Cargá una nueva compra</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,16 +11,16 @@
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-      <ion-item>
-        <ion-label position="stacked">Criptomoneda</ion-label>
-        <ion-select formControlName="symbol" placeholder="Seleccioná una">
-          @for (c of allCryptos; track c.id) {
-            <ion-select-option [value]="c.symbol.toUpperCase()">
-              {{ c.name }} ({{ c.symbol.toUpperCase() }})
-            </ion-select-option>
-          }
-        </ion-select>
-      </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Criptomoneda</ion-label>
+      <ion-select formControlName="symbol" placeholder="Seleccioná una">
+        @for (c of allCryptos; track c.id) {
+          <ion-select-option [value]="c.symbol.toUpperCase()">
+            {{ c.name }} ({{ c.symbol.toUpperCase() }})
+          </ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Cantidad</ion-label>
@@ -46,94 +46,102 @@
         style="cursor: pointer;">
       </ion-icon>
     </ion-item>
-    <!-- Modal para agregar Exchange -->
-  <ion-modal [isOpen]="isExchangeModalOpen" (didDismiss)="closeExchangeModal()">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar color="dark">
-        <ion-title>Agregar Exchange</ion-title>
-      </ion-toolbar>
-    </ion-header>
 
-    <ion-content class="ion-padding">
-      <form [formGroup]="exchangeForm" (ngSubmit)="saveExchange()">
-        <ion-item lines="none">
-          <ion-label position="stacked">Nombre del exchange</ion-label>
-          <ion-input formControlName="name" placeholder="Ej: Binance, Ripio"></ion-input>
-        </ion-item>
+    <ion-modal [isOpen]="isExchangeModalOpen" (didDismiss)="closeExchangeModal()">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar color="dark">
+            <ion-title>Agregar Exchange</ion-title>
+          </ion-toolbar>
+        </ion-header>
 
-        <div class="ion-margin-top ion-text-center">
-          <ion-button type="submit" color="success" [disabled]="exchangeForm.invalid">Guardar</ion-button>
-          <ion-button fill="clear" color="light" (click)="closeExchangeModal()">Cancelar</ion-button>
-        </div>
-      </form>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+        <ion-content class="ion-padding">
+          <form [formGroup]="exchangeForm" (ngSubmit)="saveExchange()">
+            <ion-item lines="none">
+              <ion-label position="stacked">Nombre del exchange</ion-label>
+              <ion-input formControlName="name" placeholder="Ej: Binance, Ripio"></ion-input>
+            </ion-item>
 
+            <div class="ion-margin-top ion-text-center">
+              <ion-button type="submit" color="success" [disabled]="exchangeForm.invalid">Guardar</ion-button>
+              <ion-button fill="clear" color="light" (click)="closeExchangeModal()">Cancelar</ion-button>
+            </div>
+          </form>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
+    <ion-item lines="none">
+      <ion-label position="stacked">Fecha y hora de compra</ion-label>
+      <div class="datetime-buttons">
+        <ion-button
+          expand="block"
+          fill="outline"
+          color="light"
+          (click)="showDatePicker = true">
+          {{ form.value.date ? (form.value.date | date:'dd/MM/yyyy') : 'Seleccionar fecha' }}
+        </ion-button>
 
-  
-   <!-- Fecha y hora de compra -->
-<ion-item lines="none">
-  <ion-label position="stacked">Fecha y hora de compra</ion-label>
-  <div class="datetime-buttons">
-    <ion-button
-      expand="block"
-      fill="outline"
-      color="light"
-      (click)="showDatePicker = true">
-      {{ form.value.date ? (form.value.date | date:'dd/MM/yyyy') : 'Seleccionar fecha' }}
-    </ion-button>
+        <ion-button
+          expand="block"
+          fill="outline"
+          color="light"
+          (click)="showTimePicker = true">
+          {{ form.value.date ? (form.value.date | date:'HH:mm') : 'Seleccionar hora' }}
+        </ion-button>
+      </div>
+    </ion-item>
 
-    <ion-button
-      expand="block"
-      fill="outline"
-      color="light"
-      (click)="showTimePicker = true">
-      {{ form.value.date ? (form.value.date | date:'HH:mm') : 'Seleccionar hora' }}
-    </ion-button>
-  </div>
-</ion-item>
+    <ion-modal [isOpen]="showDatePicker" (didDismiss)="showDatePicker = false">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+            presentation="date"
+            [value]="form.value.date"
+            (ionChange)="onDateConfirm($event)"
+            showDefaultButtons="true"
+            doneText="Confirmar"
+            cancelText="Cancelar">
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
-<ion-modal [isOpen]="showDatePicker" (didDismiss)="showDatePicker = false">
-  <ng-template>
-    <ion-content>
-      <ion-datetime
-        presentation="date"
-        [value]="form.value.date"
-        (ionChange)="onDateConfirm($event)"
-        showDefaultButtons="true"
-        doneText="Confirmar"
-        cancelText="Cancelar">
-      </ion-datetime>
-    </ion-content>
-  </ng-template>
-</ion-modal>
-
-<ion-modal [isOpen]="showTimePicker" (didDismiss)="showTimePicker = false">
-  <ng-template>
-    <ion-content>
-      <ion-datetime
-        presentation="time"
-        [value]="form.value.date"
-        (ionChange)="onTimeConfirm($event)"
-        showDefaultButtons="true"
-        doneText="Confirmar"
-        cancelText="Cancelar">
-      </ion-datetime>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+    <ion-modal [isOpen]="showTimePicker" (didDismiss)="showTimePicker = false">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+            presentation="time"
+            [value]="form.value.date"
+            (ionChange)="onTimeConfirm($event)"
+            showDefaultButtons="true"
+            doneText="Confirmar"
+            cancelText="Cancelar">
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
     <ion-item>
       <ion-label position="stacked">Notas</ion-label>
       <ion-textarea formControlName="notes" placeholder="Compré esta vez porque..."></ion-textarea>
     </ion-item>
 
-    <ion-button  type="submit" expand="block" class="ion-margin-top ">
+    <ion-button 
+      type="submit" 
+      expand="block" 
+      class="ion-margin-top"
+      [disabled]="form.invalid"> 
       Guardar registro
     </ion-button>
 
+    <ion-button 
+      (click)="goToTransactions()" 
+      expand="block" 
+      class="ion-margin-top"
+      fill="clear" 
+      >
+      Ver mis transacciones
+    </ion-button>
   </form>
 </ion-content>

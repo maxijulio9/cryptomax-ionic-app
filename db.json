@@ -1,4 +1,12 @@
 {
+  "profile": {
+    "id": "",
+    "name": "Maximilianoooo",
+    "lastName": "Julio99",
+    "email": "jmaxi@example.com",
+    "dni": "43010166",
+    "country": "Argentina"
+  },
   "transactions": [
     {
       "id": "1",
@@ -26,6 +34,33 @@
       "exchange": "Ripio",
       "date": "2025-10-07T09:15:00Z",
       "notes": "Inversión en ADA"
+    },
+    {
+      "id": "eb8a",
+      "symbol": "AAVE",
+      "amount": 33,
+      "priceUsd": 33333,
+      "exchange": "Ripio",
+      "date": "2025-09-11T05:36:57.994Z",
+      "notes": ""
+    },
+    {
+      "id": "f74b",
+      "symbol": "AAVE",
+      "amount": 3,
+      "priceUsd": 3,
+      "exchange": "Coinbase",
+      "date": "2025-10-17T01:41:35.764Z",
+      "notes": "33"
+    },
+    {
+      "id": "315a",
+      "symbol": "ARB",
+      "amount": 5,
+      "priceUsd": 66,
+      "exchange": "Kraken",
+      "date": "2025-09-23T01:42:48.078Z",
+      "notes": null
     }
   ],
   "exchanges": [

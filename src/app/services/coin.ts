@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
 export interface Coin {
-  symbol: string;        // id corto para la ruta (btc, eth, etc.)
-  name: string;        // nombre visible
-  image: string;       // ruta a la imagen en assets
-  description: string; // texto breve
+  symbol: string;       
+  name: string;      
+  image: string;       
+  description: string;
 }
 
 @Injectable({ providedIn: 'root' })

@@ -1,4 +1,5 @@
-/* Sección hero */
+
+
 .hero {
   text-align: center;
   padding: 12px 0 8px;
@@ -6,7 +7,7 @@
   margin-bottom: 16px;
     border-radius: 14px;
   background: rgba(79, 2, 157, 0.589);
-
+  box-shadow:   0 10px 15px rgba(0, 0, 0, 0.438);
 
 }
 
@@ -42,6 +43,8 @@
   border-radius: 14px;
   box-shadow: 0 8px  20px rgba(0, 1, 20, 0.626);
   overflow: hidden; 
+  color: aliceblue;
+  margin-top: 20px;
 }
 
 .chart-card {
@@ -53,11 +56,27 @@
 }
 
 ion-item{
-  --background: rgb(42, 1, 107) !important;
+  --background: rgb(23, 2, 40) !important;
   color: aliceblue;
+}
+
+ion-note{
+  --background: rgb(42, 1, 107) !important;
+  color: rgb(255, 168, 252);
 }
 
 .chart-card ion-card-content{
   padding: 0;
   box-shadow: 0 8px 9cap 20px rgba(0, 1, 20, 0.626);  
+}
+
+.add-button {
+  --background: #d400c6e8;
+  --color: #ffffffec;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(94, 0, 255, 0.6);
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 15%;
 }

@@ -1,13 +1,17 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ coin?.name ?? 'Cripto' }}</ion-title>
+    <ion-title >{{ coin?.name ?? 'Cripto' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+   <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event.target)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   @if (coin) {
 
     <section class="hero">
@@ -27,6 +31,8 @@
           {{ coin.priceChangePercentage24h | number:'1.2-2' }}%
         </ion-badge>
       }
+   
+
     </section>
     
     <ion-card class="chart-card">
@@ -119,4 +125,9 @@
   } @else {
     <p>No se encontró la moneda.</p>
   }
+   <!-- Agreamos un boton para añadir la crypto como txn nueva en el registro -->
+      <ion-button (click)="addTransaction()"  expand="block" class="add-button">
+        Agregar compra 
+      </ion-button>
+
 </ion-content>

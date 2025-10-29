@@ -63,7 +63,7 @@ export class HomePage {
   }
 
 goToMyCriptos() {
-  this.router.navigate(['/prices']); 
+  this.router.navigate(['/my-cryptos']); 
 }
 
 goToProfile() {

@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis transacciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content class="ion-padding my-cryptos-content">
+
+  <ion-list>
+    @for (tnx of cryptos; track tnx.id) {
+      <ion-item lines="inset">
+        <ion-avatar slot="start">
+          <img [src]="tnx.image || 'assets/coins/icon-bitcoin1.png'" [alt]="tnx.symbol" />
+        </ion-avatar>
+
+        <ion-label>
+          <h2>
+            {{ tnx.symbol.toUpperCase() }} - {{ tnx.exchange }}
+          </h2>
+          <p>Monto: {{ tnx.amount }}</p>
+          <p>Precio: ${{ tnx.priceUsd }}</p>
+          <p>Fecha: {{ tnx.date | date:'dd/MM/yyyy HH:mm' }}</p>
+          <p>Notas:<i style="color: rgb(196, 113, 170);"> {{ tnx.notes }}</i></p>
+        </ion-label>
+
+        <ion-badge  slot="end">
+          ${{ (tnx.amount / tnx.priceUsd) | number:'1.2-8' }}
+        </ion-badge>
+      </ion-item>
+    }
+  </ion-list>
+
+  @if (!cryptos.length) {
+    <ion-text color="medium" class="no-data">
+      <p>Aún no registraste compras</p>
+    </ion-text>
+  }
+</ion-content>
