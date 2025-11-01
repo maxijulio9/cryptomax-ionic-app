@@ -1,0 +1,89 @@
+.datetime-buttons {
+  display: flex;
+  gap: 10px;
+
+  ion-button {
+    flex: 1;
+    --background: #1b0033;
+    --border-color: #7a3ff2;
+    --color: #fff;
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+ion-select-option {
+  --color: #ffffff;
+} 
+ion-back-button {
+  --color: #c68ff4;
+}
+
+ion-modal {
+  --background: #1b0033;
+
+  ion-datetime {
+    --background: #d3adff;
+    --color: #ebd9d9;
+    --ion-color-base: #da00b6;
+
+
+    &::part(month-year-button) {
+      color: #000000 !important;
+    }
+
+    &::part(day-of-week) {
+      color: #000000 !important;
+    }
+
+    &::part(calendar-day) {
+      color: #000000 !important;
+    }
+
+    &::part(calendar-day-active) {
+      color: #ffffff !important;
+      background: #da00b6;
+    }
+
+
+    &::part(picker-item) {
+      color: #000000 !important;
+    }
+
+    &::part(picker-item-active) {
+      color: #da00b6 !important;
+    }
+
+
+    &::part(cancel-button),
+    &::part(confirm-button) {
+      color: #da00b6 !important;
+    }
+  }
+}
+
+.cancel-button {
+  --background: transparent;
+  --color: #fff;
+  --border-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.ion-margin-top {
+  margin-top: 20px;
+  --background: #da00b6 !important;
+  --color: #fff;
+  font-weight: bold;
+  --border-radius: 120px;
+}
+
+.ion-margin-top-see-transactions {
+  margin-top: 20px;
+  --background: #5e00da !important;
+  --color: #fff;
+  font-weight: bold;
+  --border-radius: 120px;
+}

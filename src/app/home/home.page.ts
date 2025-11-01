@@ -58,16 +58,16 @@ export class HomePage {
   }
 
   goToAdd() {
-   console.log('Agregar fondos');
-   this.router.navigate(['/add-crypto']);
+    console.log('Navigating to add transaction');
+    this.router.navigate(['/add-transaction']);
   }
 
-goToMyCriptos() {
-  this.router.navigate(['/my-cryptos']); 
-}
+  goToMyCriptos() {
+    this.router.navigate(['/my-cryptos']); 
+  }
 
-goToProfile() {
-  this.router.navigate(['/profile']);
-}
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
 
 }

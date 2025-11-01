@@ -131,7 +131,7 @@ export class CoinDetailPage implements OnInit, AfterViewInit {
 
  addTransaction() {
   if (!this.coin) return;
-  this.router.navigate(['/add-crypto'], {
+  this.router.navigate(['/add-transaction'], {
     queryParams: { symbol: this.coin.symbol }
   });
 }

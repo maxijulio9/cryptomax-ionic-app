@@ -1,8 +1,8 @@
 {
   "profile": {
     "id": "",
-    "name": "Maximilianoooo",
-    "lastName": "Julio99",
+    "name": "Maxiee",
+    "lastName": "Julio",
     "email": "jmaxi@example.com",
     "dni": "43010166",
     "country": "Argentina"
@@ -61,6 +61,33 @@
       "exchange": "Kraken",
       "date": "2025-09-23T01:42:48.078Z",
       "notes": null
+    },
+    {
+      "id": "3dad",
+      "symbol": "AAVE",
+      "amount": 56,
+      "priceUsd": 666,
+      "exchange": "Binance",
+      "date": "2025-10-14T03:46:00",
+      "notes": "66666"
+    },
+    {
+      "id": "c281",
+      "symbol": "TAO",
+      "amount": 444,
+      "priceUsd": 0.4,
+      "exchange": "Ripio",
+      "date": "2025-09-12T00:56:00",
+      "notes": "nose xd"
+    },
+    {
+      "id": "81d2",
+      "symbol": "BNSOL",
+      "amount": 0.0003,
+      "priceUsd": 0.44,
+      "exchange": "Ripio",
+      "date": "2025-10-23T05:59:00",
+      "notes": ""
     }
   ],
   "exchanges": [
@@ -99,6 +126,46 @@
     {
       "id": "542f",
       "name": "tttttt"
+    },
+    {
+      "id": "ac13",
+      "name": "lemon cash",
+      "typeWallet": "Web"
+    },
+    {
+      "id": "6196",
+      "name": "rrrrrr",
+      "typeWallet": "rrrrr"
+    },
+    {
+      "id": "0646",
+      "name": "binance\"",
+      "typeWallet": "TEST"
+    },
+    {
+      "id": "a631",
+      "name": "ee",
+      "typeWallet": "ee"
+    },
+    {
+      "id": "b5ea",
+      "name": "4444",
+      "typeWallet": ""
+    },
+    {
+      "id": "3048",
+      "name": "rrrr",
+      "typeWallet": ""
+    },
+    {
+      "id": "5ddb",
+      "name": "rrrrrwetyertytery",
+      "typeWallet": ""
+    },
+    {
+      "id": "3943",
+      "name": "eee",
+      "typeWallet": "eeeeee"
     }
   ],
   "supportQueries": [

@@ -10,8 +10,8 @@
     width: 96px;
     height: 96px;
     margin: 0 auto;
-    border: 3px solid #4e3efc;
-    box-shadow: 0 0 8px rgba(78, 62, 252, 0.4);
+    border: 3px solid #fc3eb3;
+    box-shadow: 0 0 8px rgba(2, 0, 22, 0.4);
   }
 
   .profile-name {
@@ -23,6 +23,10 @@
   .profile-email {
     font-size: 0.9rem;
     color: #ede2e2;
+  }
+
+  h2{
+    padding-top: 25px;
   }
 }
 ion-list {
@@ -37,26 +41,31 @@ ion-back-button {
 
 .profile-card {
   margin-top: 24px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(143, 6, 255, 0.418);
   border-radius: 16px;
   box-shadow: 0 10px 20px  rgba(0, 0, 0, 0.4);
 
   ion-card-title {
     font-weight: 600;
-    color: #c38aec;
+    color: #dcc3ee;
+    font-size: 1.2rem;
   }
-
+  
   ion-item {
-    --background: transparent;
-    --border-color: transparent;
+    
     color: #fff;
   }
+
   ion-note{
     color: #ffffff;
     font-size: 0.9rem;
   }
 }
 
+ion-card-content {
+  padding: 16px;
+  
+}
 .profile-options {
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.05);
@@ -64,7 +73,6 @@ ion-back-button {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 
   ion-item {
-    --background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     margin: 8px 12px;
 
@@ -72,13 +80,7 @@ ion-back-button {
       color: #b57cff;
     }
 
-    &:last-child {
-      --background: rgba(255, 40, 40, 0.1);
-      color: #ff7070;
-      ion-icon {
-        color: #ff7070;
-      }
-    }
+    
   }
 }
 

@@ -8,14 +8,23 @@
 </ion-header>
 
 <ion-content class="ion-padding profile-content">
+    <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event.target)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
   <div class="profile-header ion-text-center">
-    <ion-avatar class="profile-avatar">
+    <!-- <ion-avatar class="profile-avatar">
       <img src="assets/imgs/profile.jpeg" alt="Usuario">
-    </ion-avatar>
+    </ion-avatar> -->
+    <div class="profile-avatar">
+      <ion-img [src]="profileImage" alt="Foto de perfil"></ion-img>
+      <ion-fab-button  (click)="takePhoto()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button> 
+    </div>
 
-    <h2 class="profile-name">{{ user?.name }} {{ user?.lastName }}</h2> <!--aca se parametrizara-->
-    <p class="profile-email">{{ user?.email }}</p> <!--aca tmb se parametrizara-->
+    <h2 class="profile-name ">{{ user?.name }} {{ user?.lastName }}</h2>
+    <p class="profile-email">{{ user?.email }}</p>
   </div>
 
   <ion-card class="profile-card">
@@ -47,15 +56,20 @@
   </ion-card>
 
   <ion-list inset="true" class="profile-options">
-    <ion-item button detail (click)=" goToEditProfile()"> 
+
+    <ion-item button detail (click)=" goToEditProfile()"  > 
       <ion-label>Editar información</ion-label>
     </ion-item>
 
-    <ion-item button detail>
+    <ion-item button detail (click)="goToSecurity()">
+      <ion-label>Seguridad</ion-label>
+    </ion-item>
+
+    <ion-item button detail (click)="goToReports()">
       <ion-label>Reportes</ion-label>
     </ion-item>
 
-    <ion-item button detail>
+    <ion-item button detail (click)="goToMyTransactions()">
       <ion-label>Mis transacciones</ion-label>
     </ion-item>
 

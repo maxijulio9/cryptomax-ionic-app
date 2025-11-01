@@ -1,21 +1,23 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader,IonInput, IonTitle, IonToolbar, IonButtons, IonButton, IonItem, IonLabel, IonList, IonBackButton, IonToast } from '@ionic/angular/standalone';
+import { IonContent, IonHeader,IonInput, IonTitle, IonToolbar, IonButtons, IonButton, IonItem, IonLabel, IonList, IonBackButton, IonToast, IonRefresherContent, IonRefresher } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { profileService } from 'src/app/services/profile-service';
 import { Profile } from 'src/app/models/profile';
+import { IonicModule } from "@ionic/angular";
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.page.html',
   styleUrls: ['./edit-profile.page.scss'],
   standalone: true,
-  imports: [IonToast, IonBackButton, IonList, IonLabel, IonItem, IonButton,
-     IonButtons, IonContent, IonHeader, IonTitle, IonInput,
-      IonToolbar, CommonModule, FormsModule, ReactiveFormsModule, CommonModule]
+  imports: [ IonToast, IonBackButton, IonList, IonLabel, IonItem, IonButton,
+    IonButtons, IonContent, IonHeader, IonTitle, IonInput,
+    IonToolbar, CommonModule, FormsModule, ReactiveFormsModule, CommonModule]
 })
 export class EditProfilePage implements OnInit {
+[x: string]: any;
 
   private fb = inject(FormBuilder);
   private router = inject(Router);
@@ -79,5 +81,7 @@ export class EditProfilePage implements OnInit {
       console.log('Form is invalid');
     }
   }
+
+
 
 }

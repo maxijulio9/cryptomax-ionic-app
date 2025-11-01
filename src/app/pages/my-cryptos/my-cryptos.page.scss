@@ -1,6 +1,5 @@
 .my-cryptos-content {
   --background: #0f021a;
-  color: #fff;
 
   ion-list {
     background: transparent;
@@ -47,4 +46,8 @@
     font-style: italic;
     color: #b87aff;
   }
+}
+
+ion-back-button {
+  color: #b87aff;
 }

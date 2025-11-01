@@ -30,8 +30,8 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/profile/profile.page').then( m => m.ProfilePage)
   },
   {
-    path: 'add-crypto',
-    loadComponent: () => import('./pages/add-crypto/add-crypto.page').then( m => m.AddCryptoPage)
+    path: 'add-transaction',
+    loadComponent: () => import('./pages/add-transaction/add-transaction.page').then( m => m.AddTransactionPage)
   },
   {
     path: 'contact-support',
