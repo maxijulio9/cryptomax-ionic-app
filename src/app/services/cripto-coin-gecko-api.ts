@@ -65,24 +65,62 @@ export class CriptoCoinGeckoApi {
   //   );
   // }
   getAllCryptos(limit: number = 200): Observable<{ id: string; symbol: string; name: string }[]> {
-  return this.http.get<any[]>(`${this.apiUrl}/coins/markets`, {
-    params: {
-      vs_currency: 'usd',
-      order: 'market_cap_desc',
-      per_page: limit.toString(),
-      page: '1',
-      sparkline: 'false'
+    return this.http.get<any[]>(`${this.apiUrl}/coins/markets`, {
+      params: {
+        vs_currency: 'usd',
+        order: 'market_cap_desc',
+        per_page: limit.toString(),
+        page: '1',
+        sparkline: 'false'
+      }
+    }).pipe(
+      map((list) =>
+        list.map((coin) => ({
+          id: coin.id,
+          symbol: coin.symbol.toUpperCase(),
+          name: coin.name
+        }))
+      )
+    );
+  }
+
+  getAllCryptosCached(limit: number = 200): Observable<{ id: string; symbol: string; name: string; image: string; rank: number }[]> {
+    const cacheKey = 'all_cryptos';
+    const cacheTimeKey = 'all_cryptos_time';
+
+    const cachedData = localStorage.getItem(cacheKey);
+    const cachedTime = localStorage.getItem(cacheTimeKey);
+
+    if (cachedData && cachedTime && Date.now() - +cachedTime < 60 * 60 * 1000) {
+      return of(JSON.parse(cachedData));
     }
-  }).pipe(
-    map((list) =>
-      list.map((coin) => ({
-        id: coin.id,
-        symbol: coin.symbol.toUpperCase(),
-        name: coin.name
-      }))
-    )
-  );
-}
+
+    return this.http.get<any[]>(`${this.apiUrl}/coins/markets`, {
+      params: {
+        vs_currency: 'usd',
+        order: 'market_cap_desc',
+        per_page: limit.toString(),
+        page: '1',
+        sparkline: 'false'
+      }
+    }).pipe(
+      map(list =>
+        list.map(coin => ({
+          id: coin.id,
+          symbol: coin.symbol.toUpperCase(),
+          name: coin.name,
+          image: coin.image,
+          rank: coin.market_cap_rank
+        }))
+      ),
+      map(result => {
+        localStorage.setItem(cacheKey, JSON.stringify(result));
+        localStorage.setItem(cacheTimeKey, Date.now().toString());
+        return result;
+      })
+    );
+  }
+
 
 
 }

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { CriptoCoinGeckoApi } from './cripto-coin-gecko-api';
 
 export interface Coin {
   symbol: string;       
@@ -9,6 +10,9 @@ export interface Coin {
 
 @Injectable({ providedIn: 'root' })
 export class CoinService {
+
+  private criptoApi = inject(CriptoCoinGeckoApi);
+
   private readonly coins: Coin[] = [
     { symbol:'BTC', name:'Bitcoin',  image:'assets/coins/icon-bitcoin1.png',  description:'Primera cripto descentralizada.' },
     { symbol:'ETH', name:'Ethereum', image:'assets/coins/icon-ethereum.png',  description:'Plataforma de smart contracts.' },
@@ -21,8 +25,12 @@ export class CoinService {
 
   ];
 
-  getAll(): Coin[] {
-    return this.coins;
+  // getAll(): Coin[] {
+  //   return this.coins;
+  // }
+
+  getAll() {
+    return this.criptoApi.getAllCryptosCached();
   }
 
   getBySymbol(symbol: string): Coin | undefined {

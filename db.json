@@ -88,6 +88,15 @@
       "exchange": "Ripio",
       "date": "2025-10-23T05:59:00",
       "notes": ""
+    },
+    {
+      "id": "9f57",
+      "symbol": "VIRTUAL",
+      "amount": 0.88,
+      "priceUsd": 0.898,
+      "exchange": "Coinbase",
+      "date": "2025-11-01T20:48:31.835Z",
+      "notes": ""
     }
   ],
   "exchanges": [
