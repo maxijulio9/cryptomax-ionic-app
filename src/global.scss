@@ -44,3 +44,13 @@ body {
 
   --ion-item-background: #7e33c0;
 }
+
+ion-app, ion-content {
+  padding-top: var(--ion-safe-area-top);
+  padding-bottom: var(--ion-safe-area-bottom);
+}
+
+:root {
+  --ion-safe-area-top: env(safe-area-inset-top);
+  --ion-safe-area-bottom: env(safe-area-inset-bottom);
+}

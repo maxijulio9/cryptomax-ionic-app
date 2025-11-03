@@ -38,6 +38,13 @@ ion-back-button {
   --color: #c68ff4;
 }
 
+.profile-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 
 .profile-card {
   margin-top: 24px;
