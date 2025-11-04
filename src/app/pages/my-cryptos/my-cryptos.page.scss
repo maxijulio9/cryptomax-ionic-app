@@ -51,3 +51,8 @@
 ion-back-button {
   color: #b87aff;
 }
+
+ion-item-option[color="danger"] ion-icon {
+  color: white !important;
+  font-size: 22px;
+}

@@ -11,25 +11,39 @@
 
   <ion-list>
     @for (tnx of cryptos; track tnx.id) {
-      <ion-item lines="inset">
-        <ion-avatar slot="start">
-          <img [src]="tnx.image || 'assets/coins/icon-bitcoin1.png'" [alt]="tnx.symbol" />
-        </ion-avatar>
+      <ion-item-sliding>
+        <ion-item lines="inset">
+          <ion-avatar slot="start">
+            <img [src]="tnx.image || 'assets/coins/icon-bitcoin1.png'" [alt]="tnx.symbol" />
+          </ion-avatar>
 
-        <ion-label>
-          <h2>
-            {{ tnx.symbol.toUpperCase() }} - {{ tnx.exchange }}
-          </h2>
-          <p>Monto: {{ tnx.amount }}</p>
-          <p>Precio: ${{ tnx.priceUsd }}</p>
-          <p>Fecha: {{ tnx.date | date:'dd/MM/yyyy HH:mm' }}</p>
-          <p>Notas:<i style="color: rgb(196, 113, 170);"> {{ tnx.notes }}</i></p>
-        </ion-label>
+          <ion-label>
+            <h2>
+              {{ tnx.symbol.toUpperCase() }} - {{ tnx.exchange }}
+            </h2>
+            <p>Monto: {{ tnx.amount }}</p>
+            <p>Precio: ${{ tnx.priceUsd }}</p>
+            <p>Fecha: {{ tnx.date | date:'dd/MM/yyyy HH:mm' }}</p>
+            <p>Notas:<i style="color: rgb(196, 113, 170);"> {{ tnx.notes }}</i></p>
+          </ion-label>
 
-        <ion-badge  slot="end">
-          ${{ (tnx.amount / tnx.priceUsd) | number:'1.2-8' }}
-        </ion-badge>
-      </ion-item>
+          <ion-badge  slot="end">
+            ${{ (tnx.amount / tnx.priceUsd) | number:'1.2-8' }}
+          </ion-badge>
+          <!-- <ion-button
+            fill="clear"
+            color="danger"
+            slot="end"
+            (click)="removeTransaction(tnx.id)">
+            <ion-icon name="trash-outline" style="color: aliceblue;"></ion-icon>
+          </ion-button> -->
+        </ion-item>
+       <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="removeTransaction(tnx.id)" expandable>
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
     }
   </ion-list>
 
